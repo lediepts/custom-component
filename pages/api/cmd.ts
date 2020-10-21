@@ -38,12 +38,17 @@ export default async function handler(
 }
 
 const runCommand = async (cmd = "dir") => {
-  ps.addCommand("chcp 65001");
-  const chcp= await ps.invoke()
-  if(chcp){
-    ps.addCommand(cmd)
-    const output = ps.invoke()
-    if(output)
-    return output
-    }
+  try {
+    
+    ps.addCommand("chcp 65001");
+    const chcp= await ps.invoke()
+    if(chcp){
+      ps.addCommand(cmd)
+      const output = ps.invoke()
+      if(output)
+      return output
+      }
+  } catch (error) {
+    return `${error}`
+  }
 };
