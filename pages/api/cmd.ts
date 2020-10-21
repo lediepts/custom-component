@@ -1,17 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
 import Shell from "node-powershell";
+
 
 const ps = new Shell({
   executionPolicy: "Bypass",
   noProfile: true,
 });
-
-
-import util from "util";
-import { exec } from "child_process";
-
-const run = util.promisify(exec);
 
 export default async function handler(
   req: NextApiRequest,
