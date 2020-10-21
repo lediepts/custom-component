@@ -1,4 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
+
+import Shell from "node-powershell";
+
+const ps = new Shell({
+  executionPolicy: "Bypass",
+  noProfile: true,
+});
+
+
 import util from "util";
 import { exec } from "child_process";
 
@@ -13,7 +22,7 @@ export default async function handler(
   switch (method) {
     case "GET":
       try {
-        const output= await runCommand();
+        const output=  await runCommand();
 
         res.status(200).send(output);
       } catch (error) {
@@ -34,12 +43,13 @@ export default async function handler(
   }
 }
 
-const runCommand = async (cmd = "echo Hello guys! ") => {
-  await run("chcp 65001");
-  try {
-    const { stdout, stderr } = await run(cmd);
-    return stdout || stderr;
-  } catch (error) {
-    return error.stderr;
-  }
+const runCommand = async (cmd = "dir") => {
+  ps.addCommand("chcp 65001");
+  const chcp= await ps.invoke()
+  if(chcp){
+    ps.addCommand(cmd)
+    const output = ps.invoke()
+    if(output)
+    return output
+    }
 };
