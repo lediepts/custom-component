@@ -34,13 +34,10 @@ export default async function handler(
   }
 }
 
-const runCommand = async (cmd = "Write-Output 'Hello guys!' ") => {
+const runCommand = async (cmd = "echo Hello guys! ") => {
   await run("chcp 65001");
   try {
-    const { stdout, stderr } = await run(cmd, {
-      shell: "powershell.exe",
-      encoding: "utf8",
-    });
+    const { stdout, stderr } = await run(cmd);
     return stdout || stderr;
   } catch (error) {
     return error.stderr;
