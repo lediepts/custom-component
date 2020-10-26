@@ -1,5 +1,9 @@
 .container {
   background-color: antiquewhite;
+  display: flex;
+  width: 300px;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.163);
+  margin: 1em;
 }
 .category {
 }
