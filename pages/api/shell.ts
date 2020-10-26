@@ -9,7 +9,7 @@ export default async function handler(
     method,
     body: { cmd },
   } = req;
-
+  if (process.env.NODE_ENV !== "development") res.status(403).end();
   switch (method) {
     case "POST":
       try {

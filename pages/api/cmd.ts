@@ -11,8 +11,9 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  if (process.env.NODE_ENV!=="development")
+  res.status(403).end()
   const { method } = req;
-
   switch (method) {
     case "GET":
       try {
