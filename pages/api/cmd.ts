@@ -1,11 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import Shell from "node-powershell";
-
-
-const ps = new Shell({
-  executionPolicy: "Bypass",
-  noProfile: true,
-});
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,6 +6,7 @@ export default async function handler(
 ) {
   if (process.env.NODE_ENV!=="development")
   res.status(403).end()
+
   const { method } = req;
   switch (method) {
     case "GET":
@@ -39,6 +33,11 @@ export default async function handler(
 }
 
 const runCommand = async (cmd = "dir") => {
+  var Shell = require("node-powershell")
+    const ps = new Shell({
+      executionPolicy: "Bypass",
+      noProfile: true,
+    });
   try {
     
     ps.addCommand("chcp 65001");
