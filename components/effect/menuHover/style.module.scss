@@ -1,0 +1,83 @@
+
+/* ========= VARIABLES ========= */
+
+$bgColorLiBefore: #6e6e6e;
+$bgColorLiAfter: #acacac;
+$bgColorLi: #2a2929;
+$radius: 4px;
+
+/* ========= MIXINS ========= */
+
+@mixin transition {
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+/* ======= END Mixins ======= */
+
+
+.menu {
+  width: 210px;
+  margin: 20px auto;
+
+  & ul li {
+    display: block;
+    text-transform: uppercase;
+    height: 40px;
+    width: 200px;
+    margin-bottom: 3px;
+    position: relative;
+    border-radius: $radius;
+    background: $bgColorLi;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    & a {
+      color: #fff;
+      padding-left: 15%;
+      display: block;
+      width: 85%;
+      height: 100%;
+      font-size: 24px;
+      line-height: 42px;
+      text-decoration: none;
+      position: absolute;
+      z-index: 1;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      background: $bgColorLiBefore;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      @include transition;
+      border-top-left-radius: $radius;
+      border-bottom-left-radius: $radius;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      background: $bgColorLiAfter;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      z-index: 0;
+      @include transition;
+      border-top-right-radius: $radius;
+      border-bottom-right-radius: $radius;
+    }
+    &:hover:before {
+      width: 10px;
+      left: -10px;
+    }
+    &:hover:after {
+      width: 100%;
+    }
+  }
+}
