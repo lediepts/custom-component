@@ -1,0 +1,215 @@
+.container {
+  width: 50%;
+  margin: auto;
+  & > div {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 36px;
+  margin: 0 0 2em;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  background-color: aquamarine;
+}
+
+.btn_1 {
+  font-weight: 100;
+  transition: all 0.25s;
+
+  svg {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  rect {
+    fill: none;
+    stroke: rgb(122, 3, 3);
+    stroke-width: 2;
+    stroke-dasharray: 490, 50;
+    transition-delay: none;
+  }
+}
+
+.btn_1:hover {
+  font-weight: 900;
+  letter-spacing: 2px;
+  background-color: transparent;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.292);
+  rect {
+    stroke-width: 5;
+    stroke-dasharray: 15, 310;
+    stroke-dashoffset: 60;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+}
+
+.color_green:hover {
+  color: green;
+  rect {
+    stroke: green;
+  }
+}
+
+.color_blue:hover {
+  color: blue;
+  rect {
+    stroke: blue;
+  }
+}
+
+.btn_2 {
+  letter-spacing: 0;
+  background-color: transparent;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.292);
+}
+
+.btn_2.color_blue:hover,
+.btn_2.color_blue:active {
+  color: blue;
+}
+
+.btn_2:hover,
+.btn_2:active {
+  letter-spacing: 5px;
+}
+
+.btn_2:after,
+.btn_2:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(rgb(0, 0, 0), 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+  opacity: 0;
+}
+
+.btn_2.color_blue:after,
+.btn_2.color_blue:before {
+  border: 1px solid blue;
+}
+
+.btn_2:hover:after,
+.btn_2:hover:before {
+  backface-visibility: hidden;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+  opacity: 1;
+}
+
+.link {
+  text-decoration: none;
+  color: DeepPink;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 18px 31px;
+  position: relative;
+  transition: 0.2s ease;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 348px;
+    height: 3px;
+    background: DeepPink;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transition: 0.2s ease;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 73px;
+    background: DeepPink;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    transition: 0.2s ease;
+  }
+
+  .border:before {
+    content: "";
+    display: block;
+    width: 348px;
+    height: 3px;
+    background: DeepPink;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    transition: 0.2s ease;
+  }
+
+  .border:after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 73px;
+    background: DeepPink;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transition: 0.2s ease;
+  }
+
+  .underline:after {
+    content: "";
+    position: absolute;
+    background: DodgerBlue;
+    height: 3px;
+    width: 0px;
+    left: 30px;
+    top: 53px;
+    transition: 0.2s ease;
+  }
+
+  &:hover {
+    color: DodgerBlue;
+    transition-delay: 0.8s;
+
+    .border:before {
+      width: 0;
+      left: 348px;
+    }
+
+    &:after {
+      height: 0;
+      transition-delay: 0.2s;
+    }
+
+    &:before {
+      width: 0;
+      transition-delay: 0.4s;
+    }
+
+    .border:after {
+      height: 0;
+      top: 73px;
+      transition-delay: 0.6s;
+    }
+
+    .underline:after {
+      width: 288px;
+      transition-delay: 0.8s;
+    }
+  }
+}
