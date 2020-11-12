@@ -1,12 +1,9 @@
 
-/* ========= VARIABLES ========= */
-
 $bgColorLiBefore: #6e6e6e;
 $bgColorLiAfter: #acacac;
 $bgColorLi: #2a2929;
 $radius: 4px;
 
-/* ========= MIXINS ========= */
 
 @mixin transition {
   -webkit-transition: all .3s ease-out;
@@ -14,8 +11,6 @@ $radius: 4px;
   -ms-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
-
-/* ======= END Mixins ======= */
 
 
 .menu {
