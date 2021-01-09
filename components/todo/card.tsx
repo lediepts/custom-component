@@ -10,7 +10,7 @@ export default function TodoCard({ category }: Props) {
     <div className={styles.container}>
       <h2 className={styles.category}>{toHtml(category)}</h2>
       <div style={{ width: 100, height: 100 }}>
-        <i className="fab fa-500px"></i>
+        zzzz
       </div>
     </div>
   );
