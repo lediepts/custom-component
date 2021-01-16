@@ -22,6 +22,7 @@ export default function Home() {
         <MenuHover />
         <i className="fas fa-user"></i>
       </div>
+      <p className="test">aaaaaaaa</p>
     </Layout>
   );
 }
