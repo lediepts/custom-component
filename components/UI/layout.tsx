@@ -6,6 +6,7 @@ interface Props {
   children: ReactNode;
 }
 function Layout({ children }: Props) {
+  console.log(process.env.API_URL);
   return (
     <>
       <main className={styles.main}>
