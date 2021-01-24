@@ -2,10 +2,10 @@ module.exports = {
   env: getENV(process.env),
 };
 
-function getENV(obj) {
+function getENV(envObj) {
   let rs = {};
-  Object.keys(obj).map((key, _i) => {
-    if (key.includes(process.env.ENV_KEY)) return (rs[key] = obj[key]);
+  Object.keys(envObj).map((key, _i) => {
+    if (key.includes(envObj["ENV_KEY"])) return (rs[key] = envObj[key]);
   });
   return rs
 }
